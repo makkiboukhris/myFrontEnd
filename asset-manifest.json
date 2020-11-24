@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/myFrontEnd/static/css/main.00a89b91.chunk.css",
+    "main.js": "/myFrontEnd/static/js/main.715cf088.chunk.js",
+    "main.js.map": "/myFrontEnd/static/js/main.715cf088.chunk.js.map",
+    "runtime-main.js": "/myFrontEnd/static/js/runtime-main.64eb3e67.js",
+    "runtime-main.js.map": "/myFrontEnd/static/js/runtime-main.64eb3e67.js.map",
+    "static/js/2.7e1ad141.chunk.js": "/myFrontEnd/static/js/2.7e1ad141.chunk.js",
+    "static/js/2.7e1ad141.chunk.js.map": "/myFrontEnd/static/js/2.7e1ad141.chunk.js.map",
+    "index.html": "/myFrontEnd/index.html",
+    "precache-manifest.4081d7b0545d416aeced2dd1005a9769.js": "/myFrontEnd/precache-manifest.4081d7b0545d416aeced2dd1005a9769.js",
+    "service-worker.js": "/myFrontEnd/service-worker.js",
+    "static/css/main.00a89b91.chunk.css.map": "/myFrontEnd/static/css/main.00a89b91.chunk.css.map",
+    "static/js/2.7e1ad141.chunk.js.LICENSE.txt": "/myFrontEnd/static/js/2.7e1ad141.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/myFrontEnd/static/media/backgroundLOGIN.bb06eb37.svg",
+    "static/media/Card1.svg": "/myFrontEnd/static/media/Card1.655600a5.svg",
+    "static/media/Card2.svg": "/myFrontEnd/static/media/Card2.9269e061.svg",
+    "static/media/Card3.svg": "/myFrontEnd/static/media/Card3.a89c64ec.svg",
+    "static/media/Card4.svg": "/myFrontEnd/static/media/Card4.dd883e77.svg",
+    "static/media/logo.svg": "/myFrontEnd/static/media/logo.cd87ad53.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.64eb3e67.js",
+    "static/js/2.7e1ad141.chunk.js",
+    "static/css/main.00a89b91.chunk.css",
+    "static/js/main.715cf088.chunk.js"
+  ]
+}
