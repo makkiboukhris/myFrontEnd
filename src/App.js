@@ -9,8 +9,10 @@ import SignIn from './components/SignIn';
 import {Route, BrowserRouter as Router} from 'react-router-dom';
 import ProfileMaking from './components/ProfileMaking';
 import Profile from './components/Profile';
-import WorkingDashboard from './components/Dashboard-Working';
-import ClientDashboard from './components/Dashboard-Client';
+import Dashboard from './components/Dashboard';
+import List from './components/ProfilesList';
+import ChoosePack from './components/ChoosePack';
+import NewRate from './components/NewRate';
 
 
 function App() {
@@ -23,12 +25,13 @@ function App() {
     <Route path="/" exact component={Footer} />
     <Route path="/LogIn" component={LogIn}/>
     <Route path="/SignIn" component={SignIn}/>
-    {/* <Route path="/ClassifyUsers" component={ClassifyUsers}/> */}
-    {/* <Route path='/ClassifyUser' component={ClassifyUser}/> */}
     <Route path="/ProfileMaking" component={ProfileMaking}/>
-    <Route path="/Profile" component={Profile}/>
-    <Route path="/dashboard" component={WorkingDashboard}/>
-    <Route path="dashboard" component={ClientDashboard} />
+    <Route path="/Profile/:_id" component={Profile}/>
+    <Route path="/dashboard" component={Dashboard}/>
+    <Route path="/Freelancer/:domain" component={List}/>
+    <Route path="/Choose/Pack" component={ChoosePack}/>
+
+
     </div>
     </Router>
   );

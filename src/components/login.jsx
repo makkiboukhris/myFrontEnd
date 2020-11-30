@@ -35,7 +35,7 @@ const LogIn = (props) => {
                  loading ? (
                     <h1>please wait ....</h1>
                   ):isAuth ? (
-                    <Redirect to='/Dashboard' />
+                    <Redirect to='/dashboard' />
                   ) :
                     (
                 <div>

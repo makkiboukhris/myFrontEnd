@@ -152,7 +152,6 @@ const ProfileMaking = (props) => {
         Data.append("OtherImages", file);
       }
     }
-    Data.append("_id", userID);
     return Data;
   };
 
