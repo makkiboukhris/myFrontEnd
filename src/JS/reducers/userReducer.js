@@ -24,6 +24,15 @@ import {
   UPLOAD_PROJECT_PRIVATE,
   UPLOAD_PROJECT_PRIVATE_SUCCESS,
   UPLOAD_PROJECT_PRIVATE_FAIL,
+  SEND_COMMENT_FAIL,
+  SEND_RATING_SUCCESS,
+  SEND_RATING_FAIL,
+  SEND_COMMENT_SUCCESS,
+  SEND_ACCEPT_OR_DENY_SUCCESS,
+  SEND_ACCEPT_OR_DENY_FAIL,
+  GET_PROJECT_FAIL,
+  GET_PROJECT,
+  GET_PROJECT_SUCCESS,
 } from "../constants/actions-types";
 
 const initialState = {
@@ -173,6 +182,59 @@ const userReducer = (state = initialState, { type, payload }) => {
         ...state,
         loading: false,
         privateProjectError: payload,
+      };
+    case SEND_COMMENT_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        commentSuccess: payload,
+      };
+    case SEND_COMMENT_FAIL:
+      return {
+        ...state,
+        loading: false,
+        commentError: payload,
+      };
+    case SEND_RATING_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        ratingSuccess: payload,
+      };
+    case SEND_RATING_FAIL:
+      return {
+        ...state,
+        loading: false,
+        ratingError: payload,
+      };
+    case SEND_ACCEPT_OR_DENY_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        ratingSuccess: payload,
+      };
+    case SEND_ACCEPT_OR_DENY_FAIL:
+      return {
+        ...state,
+        loading: false,
+        ratingError: payload,
+      };
+    case GET_PROJECT:
+      return {
+        ...state,
+        loading: true,
+      };
+    case GET_PROJECT_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        projects: payload,
+      };
+    case GET_PROJECT_FAIL:
+      return {
+        ...state,
+        loading: false,
+        projectsError: payload,
       };
     default:
       return state;

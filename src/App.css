@@ -706,7 +706,7 @@ tr:nth-child(even) {
   grid-template-rows: 10vh 10vh 70vh 70vh 80vh 80vh;
   grid-template-areas:
     "header header"
-    "navigation ."
+    "navigation navigation "
     "carrousel Packs"
     "ServiceDesc ."
     "AboutSection ."
@@ -722,10 +722,12 @@ tr:nth-child(even) {
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0;
+  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
 }
 .Profile-Navigation ul {
   display: flex;
   justify-content: space-around;
+  width: 65%;
 }
 .Profile-Navigation ul li {
   list-style: none;
@@ -1241,6 +1243,102 @@ tr:nth-child(even) {
   margin-top: 10%;
   float:right;
 }
+.profiles-container{
+  display: flex;
+  margin-left: 5vw;
+  flex-wrap: wrap;
+}
+.profile-card{
+  margin: 3vw;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+.serviceImages{
+  width: 20vw;
+}
+.profileIMG-Name{
+  margin-left: 10%;
+  display: flex;
+}
+.profileIMG-container-profileList{
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  margin-top: 5%;
+  background-color: white;
+  position: relative;
+  width: 4vw;
+  height:4vw;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.profileIMG{
+  margin: auto;
+  width: 4vw;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  position: absolute;
+}
+.profile-card .name{
+  font-family: "Lato", sans-serif;
+  margin-top: 12%;
+  margin-left: 8%;
+  font-size: 1.2vw;
+  color: #18204b;
+}
+.profile-card .BasicPrice{
+  font-family: "Lato", sans-serif;
+  font-size: 1.2vw;
+  color: #18204b;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: 15%;
+  margin-bottom: 7%;
+}
+.project-list{
+  margin-left: 10%;
+  margin-right: 10%;
+  display: flex;
+  justify-content: space-between;
+}
+.project-list-container{
+  cursor: pointer;
+  border: solid 1px white;
+  margin-left: 10%;  
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  margin-right: 20%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+.project-list h1{
+  /* margin-left: 10%;
+  margin-right: 0%;
+  margin-top: 2%;
+  margin-bottom: 0%; */
+  font-family: "Lato", sans-serif;
+  font-size: 2vw;
+  color: #18204b;
+}
+.project-state-list{
+  display: flex;
+  /* justify-content: space-between; */
+}
+.project-list h2{
+  margin-left: 0%;
+  margin-right: 0%;
+  margin-top: 2%;
+  margin-bottom:10%;
+  font-family: "Lato", sans-serif;
+  font-size: 1.5vw;
+  color: #6d6d6d;
+}
+
 
 /* end dashboard */
 

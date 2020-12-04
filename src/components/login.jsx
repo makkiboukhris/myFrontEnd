@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import logo from '../res/logo.svg'
 import { Redirect, withRouter } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getProfile, Login } from '../JS/actions';
+import { getProfile, getProfjects, getProjects, Login } from '../JS/actions';
 
 const LogIn = (props) => {
 
@@ -18,6 +18,10 @@ const LogIn = (props) => {
 
     useEffect(() => {
         dispatch(getProfile());
+      }, [token]);
+
+      useEffect(() => {
+        dispatch(getProjects());
       }, [token]);
 
     const SECONNECTER = async() =>{ 

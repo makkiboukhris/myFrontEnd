@@ -17,7 +17,7 @@ const ChoosePack = (props) => {
     <div>
       {!isAuth ? (
         <Redirect to="/LogIn" />
-      ) : loading?(
+      ) : loading ? (
         <h1>please wait ...</h1>
       ) : (
         <div className="choose-pack">
@@ -81,19 +81,20 @@ const ChoosePack = (props) => {
                   ))}
             <button
               className="price-BTN send-BTN"
-              onClick={()=>{dispatch(
-                sendPrivateProject({
-                  privateProjectDescription,
-                  privateProjectName,
-                  freelancerID: JSON.parse(localStorage.getItem("freelancer"))._id,
-                  pack:localStorage.getItem("pack"),
-                  projectOwnerID: isAuth._id,
-                })
-              );
-              localStorage.removeItem('pack')
-              localStorage.removeItem('freelancer')
-              props.history.push('/dashboard');
-            }}
+              onClick={() => {
+                dispatch(
+                  sendPrivateProject({
+                    projectDescription: privateProjectDescription,
+                    projectName: privateProjectName,
+                    freelancer: JSON.parse(localStorage.getItem("freelancer"))._id,
+                    pack: localStorage.getItem("pack"),
+                    projectOwner: isAuth._id,
+                  })
+                );
+                localStorage.removeItem("pack");
+                localStorage.removeItem("freelancer");
+                props.history.push("/dashboard");
+              }}
             >
               Envoyer
             </button>

@@ -24,6 +24,15 @@ import {
   UPLOAD_PROJECT_PRIVATE,
   UPLOAD_PROJECT_PRIVATE_SUCCESS,
   UPLOAD_PROJECT_PRIVATE_FAIL,
+  SEND_COMMENT_SUCCESS,
+  SEND_COMMENT_FAIL,
+  SEND_RATING_SUCCESS,
+  SEND_RATING_FAIL,
+  SEND_ACCEPT_OR_DENY_SUCCESS,
+  SEND_ACCEPT_OR_DENY_FAIL,
+  GET_PROJECT,
+  GET_PROJECT_SUCCESS,
+  GET_PROJECT_FAIL,
 } from "../constants/actions-types";
 
 export const signin = (newUser) => async (dispatch) => {
@@ -45,6 +54,33 @@ export const signin = (newUser) => async (dispatch) => {
   }
 };
 
+export const getProjects = () => async (dispatch) => {
+  const token = localStorage.getItem("token");
+  const config = {
+    headers: {
+      Authorization: token,
+    },
+  };
+  dispatch({
+    type: GET_PROFILE,
+  });
+  try {
+    const isAuth = await axios.get("/user/current", config);
+    localStorage.setItem(
+      "Projects",
+      JSON.stringify(isAuth.data.actualProjects)
+    );
+    dispatch({
+      type: GET_PROFILE_SUCCESS,
+    });
+  } catch (error) {
+    dispatch({
+      type: GET_PROFILE_FAIL,
+      // payload: error.response.data,
+    });
+  }
+};
+
 export const getProfile = () => async (dispatch) => {
   const token = localStorage.getItem("token");
   const config = {
@@ -57,11 +93,14 @@ export const getProfile = () => async (dispatch) => {
   });
   try {
     const isAuth = await axios.get("/user/current", config);
+    // console.log('isAuth', isAuth)
+    // localStorage.setItem('Projects',JSON.stringify(isAuth.data.actualProjects))
     dispatch({
       type: GET_PROFILE_SUCCESS,
       payload: isAuth.data,
     });
   } catch (error) {
+    console.log("error", error);
     dispatch({
       type: GET_PROFILE_FAIL,
       payload: error.response.data,
@@ -143,11 +182,13 @@ export const uploadPublicProject = (infos) => async (dispatch) => {
   });
   try {
     const uploadRes = await axios.post("/project/public/upload", infos);
-    console.log('uploadRes', uploadRes)
-    let existingPrivateProject = JSON.parse(localStorage.getItem('Projects'))
-    if(existingPrivateProject === null){ existingPrivateProject = []}
-    existingPrivateProject.push(uploadRes.data)
-    localStorage.setItem('Projects',JSON.stringify(existingPrivateProject))
+    console.log("uploadRes", uploadRes);
+    let existingPrivateProject = JSON.parse(localStorage.getItem("Projects"));
+    if (existingPrivateProject === null) {
+      existingPrivateProject = [];
+    }
+    existingPrivateProject.push(uploadRes.data);
+    localStorage.setItem("Projects", JSON.stringify(existingPrivateProject));
     dispatch({
       type: UPLOAD_PROJECT_PUBLIC_SUCCESS,
       payload: uploadRes.data,
@@ -161,7 +202,7 @@ export const uploadPublicProject = (infos) => async (dispatch) => {
 };
 
 export const getSelectedProfile = (_id) => async (dispatch) => {
-  console.log('_id', _id)
+  // console.log('_id', _id)
   const config = {
     headers: {
       _id: _id,
@@ -175,7 +216,6 @@ export const getSelectedProfile = (_id) => async (dispatch) => {
       "/getselectedFreelancer",
       config
     );
-    // console.log("selectedFreelancer", selectedFreelancer.data.selectedProfile);
     dispatch({
       type: GET_SELECTED_PROFILE_SUCCESS,
       payload: selectedFreelancer.data.selectedProfile,
@@ -193,12 +233,10 @@ export const sendPrivateProject = (privateProject) => async (dispatch) => {
     type: UPLOAD_PROJECT_PRIVATE,
   });
   try {
-     await axios.post("/link/userproject", privateProject);
-    const privateProjectRes = await axios.post('/project/private/upload',privateProject)
-    let existingPrivateProject = JSON.parse(localStorage.getItem('Projects'))
-    if(existingPrivateProject === null){ existingPrivateProject = []}
-    existingPrivateProject.push(privateProjectRes.data)
-    localStorage.setItem('Projects',JSON.stringify(existingPrivateProject))
+    const privateProjectRes = await axios.post(
+      "/project/private/upload",
+      privateProject
+    );
     dispatch({
       type: UPLOAD_PROJECT_PRIVATE_SUCCESS,
       payload: privateProjectRes.data,
@@ -206,7 +244,72 @@ export const sendPrivateProject = (privateProject) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: UPLOAD_PROJECT_PRIVATE_FAIL,
-      // payload: error.response.data,
+      payload: error.response.data,
+    });
+  }
+};
+
+export const getWaitingProjects = (projectIDs) => async (dispatch) => {
+  dispatch({
+    type: GET_PROJECT,
+  });
+  try {
+    const privateProjectRes = await axios.post('/project/getWaiting', projectIDs )
+    dispatch({
+      type:GET_PROJECT_SUCCESS,
+      payload: privateProjectRes.data
+    })
+  } catch (error) {
+    dispatch({
+      type: GET_PROJECT_FAIL,
+      payload: error.response.data,
+    });
+  }
+};
+
+export const sendComment = (comment) => async (dispatch) => {
+  try {
+    const commentRes = await axios.post("/shareComment", comment);
+    dispatch({
+      type: SEND_COMMENT_SUCCESS,
+      payload: commentRes.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: SEND_COMMENT_FAIL,
+      payload: error.response.data,
+    });
+  }
+};
+
+export const sendRating = (rate) => async (dispatch) => {
+  try {
+    const ratingRes = await axios.post("/rating", rate);
+    dispatch({
+      type: SEND_RATING_SUCCESS,
+      payload: ratingRes.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: SEND_RATING_FAIL,
+      payload: error.response.data,
+    });
+  }
+};
+
+export const responseToPrivateProject = (projectToAccept) => async (
+  dispatch
+) => {
+  try {
+    const res = await axios.post("/responseToPrivateProject", projectToAccept);
+    dispatch({
+      type: SEND_ACCEPT_OR_DENY_SUCCESS,
+      payload: res.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: SEND_ACCEPT_OR_DENY_FAIL,
+      payload: error.response.data,
     });
   }
 };
