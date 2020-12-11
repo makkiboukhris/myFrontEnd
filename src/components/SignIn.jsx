@@ -3,6 +3,7 @@ import { getProfile, signin } from "../JS/actions/index";
 import logo from "../res/logo.svg";
 import { Redirect, withRouter } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import Loading from "./Loading";
 
 const SignIn = (props) => {
   const dispatch = useDispatch();
@@ -129,9 +130,7 @@ const SignIn = (props) => {
       <img onClick={() => props.history.push("/")} src={logo} alt="" />
       
         {loading ? (
-          <div className="INPUTSS">
-            <h1> please wait ...</h1>
-          </div>
+          <Loading />
         ) : isAuth ? (
           user.userType === "CUSTOMER" ? (
             <Redirect to="/dashboard" />

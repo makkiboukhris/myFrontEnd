@@ -14,6 +14,7 @@ import FinalStep from "./profileMaking-steps/finalstep";
 import { useDispatch, useSelector } from "react-redux";
 import { getProfile, updateFreelancer } from "../JS/actions";
 import { Redirect, withRouter } from "react-router-dom";
+import Loading from "./Loading";
 
 function getSteps() {
   return ["Domaine", "à Propos", "Packs", "Description Du Service"];
@@ -240,7 +241,7 @@ const ProfileMaking = (props) => {
       <div className="steps">
         {
           loading?
-          <h1>please wait ...</h1>
+          <Loading />
           : 
           !isAuth?(
             <Redirect to='/LogIn'/>

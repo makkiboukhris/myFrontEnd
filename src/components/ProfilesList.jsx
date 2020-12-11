@@ -3,6 +3,8 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "./Header";
 import { getProfilesList } from "../JS/actions";
+import { Backdrop, CircularProgress } from "@material-ui/core";
+import Loading from "./Loading";
 
 const List = (props) => {
   const dispatch = useDispatch();
@@ -34,24 +36,28 @@ const List = (props) => {
 
   return (
     <div>
-      <Header/>
+      <Header />
       {/*props.match.params.domain*/}
       {loading ? (
-        <h1>please wait</h1>
+        <Loading />
       ) : profilesList ? (
-        <div className='profiles-container'>
-{        profilesList.map((el) => (
-          <div key={el._id} className='profile-card' onClick={() => gotothisProfil(el._id)}>
-            <img className='serviceImages' src={serviceImages} alt="" />
-            <div className='profileIMG-Name'>
-              <div className='profileIMG-container-profileList'>
-              <img className='profileIMG' src={profileIMG} alt="" />
+        <div className="profiles-container">
+          {profilesList.map((el) => (
+            <div
+              key={el._id}
+              className="profile-card"
+              onClick={() => gotothisProfil(el._id)}
+            >
+              <img className="serviceImages" src={serviceImages} alt="" />
+              <div className="profileIMG-Name">
+                <div className="profileIMG-container-profileList">
+                  <img className="profileIMG" src={profileIMG} alt="" />
+                </div>
+                <h5 className="name"> {el.name} </h5>
               </div>
-            <h5 className='name'> {el.name} </h5>
+              <h5 className="BasicPrice"> {el.BasicPrice} TND</h5>
             </div>
-            <h5 className='BasicPrice'> {el.BasicPrice} TND</h5>
-          </div>
-        ))}
+          ))}
         </div>
       ) : (
         <h1>pas de freelancers</h1>

@@ -39,7 +39,7 @@ const Step1 = (props) => {
               Developpement Web et Mobile
             </label>
 
-            <div className={props.ProfileDomain === "A" ? "countries" : "none"}>
+            {/* <div className={props.ProfileDomain === "A" ? "countries" : "none"}>
               <select
                 name="specialty"
                 id="select"
@@ -50,7 +50,7 @@ const Step1 = (props) => {
                 <option value=""></option>
                 <option value=""></option>
               </select>
-            </div>
+            </div> */}
           </div>
 
           <div className="choices">
@@ -67,7 +67,7 @@ const Step1 = (props) => {
             />
             <label htmlFor="Sales-&-Marketing">Sales & Marketing</label>
 
-            <div className={props.ProfileDomain === "B" ? "countries" : "none"}>
+            {/* <div className={props.ProfileDomain === "B" ? "countries" : "none"}>
               <select
                 name="specialty"
                 id="select"
@@ -78,7 +78,7 @@ const Step1 = (props) => {
                 <option value=""></option>
                 <option value=""></option>
               </select>
-            </div>
+            </div> */}
           </div>
 
           <div className="choices">
@@ -95,7 +95,7 @@ const Step1 = (props) => {
             />
             <label htmlFor="Design">Design</label>
 
-            <div className={props.ProfileDomain === "C" ? "countries" : "none"}>
+            {/* <div className={props.ProfileDomain === "C" ? "countries" : "none"}>
               <select
                 name="specialty"
                 id="select"
@@ -106,7 +106,7 @@ const Step1 = (props) => {
                 <option value=""></option>
                 <option value=""></option>
               </select>
-            </div>
+            </div> */}
           </div>
 
           <div className="choices">
@@ -123,7 +123,7 @@ const Step1 = (props) => {
             />
             <label htmlFor="Consulting">Consulting</label>
 
-            <div className={props.ProfileDomain === "D" ? "countries" : "none"}>
+            {/* <div className={props.ProfileDomain === "D" ? "countries" : "none"}>
               <select
                 name="specialty"
                 id="select"
@@ -134,7 +134,7 @@ const Step1 = (props) => {
                 <option value=""></option>
                 <option value=""></option>
               </select>
-            </div>
+            </div> */}
           </div>
 
           <div className={props.ERRORMSG_1 === true ? "alertmessages" : "none"}>

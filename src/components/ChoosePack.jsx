@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { sendPrivateProject } from "../JS/actions";
+import Loading from "./Loading";
 
 const ChoosePack = (props) => {
   const [privateProjectDescription, setPrivateProjectDescription] = useState();
@@ -18,7 +19,7 @@ const ChoosePack = (props) => {
       {!isAuth ? (
         <Redirect to="/LogIn" />
       ) : loading ? (
-        <h1>please wait ...</h1>
+        <Loading />
       ) : (
         <div className="choose-pack">
           <div className="header">

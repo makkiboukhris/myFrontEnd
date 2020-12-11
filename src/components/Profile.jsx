@@ -8,6 +8,7 @@ import ClearIcon from "@material-ui/icons/Clear";
 import { useDispatch, useSelector } from "react-redux";
 import { getSelectedProfile } from "../JS/actions";
 import { Redirect } from "react-router-dom";
+import Loading from "./Loading";
 const Profile = (props) => {
   // State
 
@@ -89,7 +90,7 @@ const Profile = (props) => {
   return (<div>
     {
       loading ?(
-        <h1>please wait ...</h1>
+        <Loading />
       ):selectedProfileError?(
         <Redirect to='/dashboard'/>
       ):(

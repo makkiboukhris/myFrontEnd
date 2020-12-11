@@ -33,6 +33,28 @@ import {
   GET_PROJECT_FAIL,
   GET_PROJECT,
   GET_PROJECT_SUCCESS,
+  DELETE_PROJECT_FAIL,
+  DELETE_PROJECT_SUCCESS,
+  GET_EMAIL,
+  GET_EMAIL_SUCCESS,
+  GET_EMAIL_FAIL,
+  CLEAR_EMAIL,
+  SEND_PROJECT_FINISHED,
+  SEND_PROJECT_FINISHED_SUCCESS,
+  SEND_PROJECT_FINISHED_FAIL,
+  PROJECT_RECEIVED_SUCCESS,
+  PROJECT_RECEIVED_FAIL,
+  GET_PUBLIC_PROJECT_SUCCESS,
+  GET_PUBLIC_PROJECT_FAIL,
+  POST_WORK_ON_PUBLIC_PROJECT_SUCCESS,
+  POST_WORK_ON_PUBLIC_PROJECT_FAIL,
+  POST_WORK_ON_PUBLIC_PROJECT,
+  GET_FREELANCERS_WORKING_ON_PUBLIC,
+  GET_FREELANCERS_WORKING_ON_PUBLIC_SUCCESS,
+  GET_FREELANCERS_WORKING_ON_PUBLIC_FAIL,
+  HIRE_THIS_FREELANCER,
+  HIRE_THIS_FREELANCER_FAIL,
+  HIRE_THIS_FREELANCER_SUCCESS,
 } from "../constants/actions-types";
 
 const initialState = {
@@ -176,6 +198,7 @@ const userReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         loading: false,
+        privateProjectUploaded: payload,
       };
     case UPLOAD_PROJECT_PRIVATE_FAIL:
       return {
@@ -211,13 +234,14 @@ const userReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         loading: false,
-        ratingSuccess: payload,
+        responseSuccess: payload.project,
+        userUpdateSuccess: payload.updatedFreelancer,
       };
     case SEND_ACCEPT_OR_DENY_FAIL:
       return {
         ...state,
         loading: false,
-        ratingError: payload,
+        responseError: payload,
       };
     case GET_PROJECT:
       return {
@@ -228,13 +252,140 @@ const userReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         loading: false,
-        projects: payload,
+        actualProjects: payload.actualProjects,
+        waitingProjects: payload.waitingProjects,
       };
     case GET_PROJECT_FAIL:
       return {
         ...state,
         loading: false,
         projectsError: payload,
+      };
+    case DELETE_PROJECT_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        deletedProject: payload,
+      };
+    case DELETE_PROJECT_FAIL:
+      return {
+        ...state,
+        loading: false,
+        deletedProjectError: payload,
+      };
+    case GET_EMAIL:
+      return {
+        ...state,
+        loading: true,
+      };
+    case GET_EMAIL_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        email: payload,
+      };
+    case GET_EMAIL_FAIL:
+      return {
+        ...state,
+        loading: false,
+        emailError: payload,
+      };
+    case CLEAR_EMAIL:
+      return {
+        ...state,
+        email: null,
+      };
+    case SEND_PROJECT_FINISHED:
+      return {
+        ...state,
+        loading: true,
+      };
+    case SEND_PROJECT_FINISHED_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        projectFinished: payload,
+      };
+    case SEND_PROJECT_FINISHED_FAIL:
+      return {
+        ...state,
+        loading: false,
+        projectFinishedError: payload,
+      };
+    case PROJECT_RECEIVED_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        projectReceived: payload,
+      };
+    case PROJECT_RECEIVED_FAIL:
+      return {
+        ...state,
+        loading: false,
+        projectReceivedError: payload,
+      };
+    case GET_PUBLIC_PROJECT_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        publicProjects: payload.list,
+      };
+    case GET_PUBLIC_PROJECT_FAIL:
+      return {
+        ...state,
+        loading: false,
+        publicProjectsError: payload,
+      };
+    case POST_WORK_ON_PUBLIC_PROJECT:
+      return {
+        ...state,
+        loading: true,
+      };
+    case POST_WORK_ON_PUBLIC_PROJECT_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        workingOnPublicProject: payload,
+      };
+    case POST_WORK_ON_PUBLIC_PROJECT_FAIL:
+      return {
+        ...state,
+        loading: false,
+        workingOnPublicProjectError: payload,
+      };
+    case GET_FREELANCERS_WORKING_ON_PUBLIC:
+      return {
+        ...state,
+        loading: true,
+      };
+    case GET_FREELANCERS_WORKING_ON_PUBLIC_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        freelancersWorkingOnPublicProject: payload,
+      };
+    case GET_FREELANCERS_WORKING_ON_PUBLIC_FAIL:
+      return {
+        ...state,
+        loading: false,
+        freelancersWorkingOnPublicProjectError: payload,
+      };
+    case HIRE_THIS_FREELANCER:
+      return {
+        ...state,
+        loading: true,
+      };
+    case HIRE_THIS_FREELANCER_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        hiredFreelancer: payload,
+      };
+    case HIRE_THIS_FREELANCER_FAIL:
+      return {
+        ...state,
+        loading: false,
+        fhiredFreelancerError: payload,
       };
     default:
       return state;

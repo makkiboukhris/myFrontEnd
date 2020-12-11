@@ -13,9 +13,9 @@ import Dashboard from "./components/Dashboard";
 import List from "./components/ProfilesList";
 import ChoosePack from "./components/ChoosePack";
 import NewRate from "./components/NewRate";
+import ProfilePublicProject from "./components/ProfilePublicProject";
 
 function App() {
-  const [type, setType] = useState();
   return (
     <Router>
       <div className="App">
@@ -27,6 +27,7 @@ function App() {
         <Route path="/SignIn" component={SignIn} />
         <Route path="/ProfileMaking" component={ProfileMaking} />
         <Route path="/Profile/:_id" component={Profile} />
+        <Route path="/ProfilePublicProject/:_id/:index" component={ProfilePublicProject} />
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/Freelancer/:domain" component={List} />
         <Route path="/Choose/Pack" component={ChoosePack} />

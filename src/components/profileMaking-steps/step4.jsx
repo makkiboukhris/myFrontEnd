@@ -5,7 +5,7 @@ import { IconButton } from "@material-ui/core";
 const Step4 = (props) => {
   return (
     <div>
-      <div className="Upload-Videos">
+      {/* <div className="Upload-Videos">
         <input
           type="file"
           accept="video/*"
@@ -19,7 +19,7 @@ const Step4 = (props) => {
             <VideoLibraryIcon style={{ fontSize: "2vw" }} />
           </IconButton>
         </label>
-      </div>
+      </div> */}
 
       <div className="Upload-IMAGES">
         <input
