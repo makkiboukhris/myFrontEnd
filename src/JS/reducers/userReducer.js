@@ -55,6 +55,7 @@ import {
   HIRE_THIS_FREELANCER,
   HIRE_THIS_FREELANCER_FAIL,
   HIRE_THIS_FREELANCER_SUCCESS,
+  LOGOUT_USER,
 } from "../constants/actions-types";
 
 const initialState = {
@@ -387,6 +388,16 @@ const userReducer = (state = initialState, { type, payload }) => {
         loading: false,
         fhiredFreelancerError: payload,
       };
+    case LOGOUT_USER:
+      return {
+        ...state,
+        isAuth: null,
+        loggedOut : true,
+        userType:null,
+        user:null,
+        userID:null,
+        token:null
+      }
     default:
       return state;
   }

@@ -30,6 +30,9 @@ import Card from "./Card";
 import NewRate from "./NewRate";
 import { CLEAR_EMAIL } from "../JS/constants/actions-types";
 import Loading from "./Loading";
+import SideBar from "./dashboard/sideBar";
+import MessageMain from "./dashboard/messageMain";
+import Messagerie from "./dashboard/Messagerie";
 
 // const useStyles = makeStyles((theme) => ({
 //   root: {
@@ -90,7 +93,7 @@ const Dashboard = (props) => {
   const email = useSelector((state) => state.userReducer.email);
 
   // hooks
-  const [dashboardSections, setDashboardSections] = useState(0);
+  const [dashboardSections, setDashboardSections] = useState(2);
   const [projectDescription, setProjectDescription] = useState("");
   const [budgetmin, setBudgetmin] = useState();
   const [budgetmax, setBudgetmax] = useState();
@@ -195,7 +198,9 @@ const Dashboard = (props) => {
       );
     }
     if (dashboardSections === 2) {
-      return <div></div>;
+      return <div className="messagerie">
+        <Messagerie userName={isAuth.name} />
+      </div>;
     }
     if (dashboardSections === 3) {
       return (
@@ -722,6 +727,7 @@ const Dashboard = (props) => {
 
             {dashboardSections === 0 ? (
               <div className="dashboard-insights">
+
                 <div className="dashboard-insights-clicks">
                   <FormatListBulletedIcon
                     style={{ fontSize: "4vw", color: "#1a936f" }}
@@ -740,7 +746,7 @@ const Dashboard = (props) => {
                       ) / isAuth.ratings.length
                     ).toFixed(2)}{" "}
                     /5 {"  "}
-                    on {isAuth.ratings.length} ratings
+                    sur {isAuth.ratings.length} évaluations
                   </h6>
                 </div>
                 <div className="dashboard-insights-proj">
@@ -1076,10 +1082,7 @@ const Dashboard = (props) => {
             )}
           </div>
         ) : userType === "CUSTOMER" ? (
-          <div>
-            <div className="salutation-dashboard">
-              <h1>Bonjour {isAuth.name} !</h1>
-            </div>
+          <div>            
             {renderBlock(dashboardSections)}
           </div>
         ) : (

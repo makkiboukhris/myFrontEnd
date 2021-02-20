@@ -12,7 +12,7 @@ import Profile from "./components/Profile";
 import Dashboard from "./components/Dashboard";
 import List from "./components/ProfilesList";
 import ChoosePack from "./components/ChoosePack";
-import NewRate from "./components/NewRate";
+// import NewRate from "./components/NewRate";
 import ProfilePublicProject from "./components/ProfilePublicProject";
 
 function App() {

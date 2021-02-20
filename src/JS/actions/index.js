@@ -54,6 +54,7 @@ import {
   HIRE_THIS_FREELANCER,
   HIRE_THIS_FREELANCER_SUCCESS,
   HIRE_THIS_FREELANCER_FAIL,
+  LOGOUT_USER,
 } from "../constants/actions-types";
 
 export const signin = (newUser) => async (dispatch) => {
@@ -471,4 +472,12 @@ export const hireThisFreelancer = (data) => async (dispatch) =>{
       payload:error,
     })
   }
+}
+
+export const logout = () => (dispatch) =>{
+  console.log('hello')
+  dispatch({
+    type: LOGOUT_USER,
+  });
+  localStorage.removeItem('token');
 }

@@ -14,13 +14,17 @@
   display: flex;
   justify-content: space-around;
 }
-.navbar ul {
-  transform: translate(0%, 20%);
+.navbar .links-header {
+  /* transform: translate(0%, 20%); */
   list-style: none;
   color: white;
   display: flex;
   justify-content: space-around;
   width: 35vw;
+}
+.navbar ul li {
+  margin-top: 1.1vh;
+  cursor: pointer;
 }
 .navbar {
   font-size: 1.2vw;
@@ -92,6 +96,8 @@
   border-radius: 10px;
   font-size: 1.8vw;
   font-family: "Secular One", sans-serif;
+  outline: none;
+  cursor: pointer;
   /* padding: 10px 20px; */
 }
 .welcome button:hover {
@@ -952,7 +958,7 @@ tr:nth-child(even) {
   grid-template-rows: 10vh 90vh;
   grid-template-areas:
     "header header"
-    "menu .";
+    "menu main";
 }
 .dashboard .header {
   grid-area: header;
@@ -994,6 +1000,7 @@ tr:nth-child(even) {
   color: white;
 }
 .main-dashboard {
+  grid-area: main;
   overflow-y: scroll;
 }
 .salutation-dashboard {
@@ -1231,7 +1238,7 @@ tr:nth-child(even) {
   grid-area: pack;
   background-color: #e5e5e5;
 }
-.pack-section h1{
+.pack-section h1 {
   font-family: "Lato", sans-serif;
   font-size: 2vw;
   color: #1a936f;
@@ -1239,16 +1246,16 @@ tr:nth-child(even) {
 .header {
   grid-area: header;
 }
-.send-BTN{
+.send-BTN {
   margin-top: 10%;
-  float:right;
+  float: right;
 }
-.profiles-container{
+.profiles-container {
   display: flex;
   margin-left: 10vw;
   flex-wrap: wrap;
 }
-.profile-card{
+.profile-card {
   margin-right: 9vw;
   margin-top: 3vw;
   margin-bottom: 3vw;
@@ -1257,24 +1264,24 @@ tr:nth-child(even) {
   flex-direction: column;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
-.serviceImages{
+.serviceImages {
   width: 20vw;
 }
-.profileIMG-Name{
+.profileIMG-Name {
   margin-left: 10%;
   display: flex;
 }
-.profileIMG-container-profileList{
+.profileIMG-container-profileList {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
   margin-top: 5%;
   background-color: white;
   position: relative;
   width: 4vw;
-  height:4vw;
+  height: 4vw;
   border-radius: 50%;
   overflow: hidden;
 }
-.profileIMG{
+.profileIMG {
   margin: auto;
   width: 4vw;
   max-width: 100%;
@@ -1288,14 +1295,14 @@ tr:nth-child(even) {
   height: auto;
   position: absolute;
 }
-.profile-card .name{
+.profile-card .name {
   font-family: "Lato", sans-serif;
   margin-top: 12%;
   margin-left: 8%;
   font-size: 1.2vw;
   color: #18204b;
 }
-.profile-card .BasicPrice{
+.profile-card .BasicPrice {
   font-family: "Lato", sans-serif;
   font-size: 1.2vw;
   color: #18204b;
@@ -1304,60 +1311,60 @@ tr:nth-child(even) {
   margin-right: 15%;
   margin-bottom: 7%;
 }
-.project-list{
+.project-list {
   margin-left: 10%;
   margin-right: 10%;
   display: flex;
   justify-content: space-between;
 }
-.project-list-container{
+.project-list-container {
   cursor: pointer;
   border: solid 1px white;
-  margin-left: 10%;  
+  margin-left: 10%;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
   margin-right: 20%;
   margin-top: 2%;
   margin-bottom: 2%;
 }
-.project-list-container:hover{
+.project-list-container:hover {
   box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2), 0 9px 30px 0 rgba(0, 0, 0, 0.19);
   opacity: 0.97;
 }
-.project-list h1{
+.project-list h1 {
   font-family: "Lato", sans-serif;
   font-size: 2vw;
   color: #18204b;
 }
-.project-state-list{
+.project-state-list {
   display: flex;
 }
-.project-list h2{
+.project-list h2 {
   margin-left: 0%;
   margin-right: 0%;
   margin-top: 2%;
-  margin-bottom:6vh;
+  margin-bottom: 6vh;
   font-family: "Lato", sans-serif;
   font-size: 1.2vw;
   color: #6d6d6d;
 }
-.project-list-icons-delete{
+.project-list-icons-delete {
   color: #6d6d6d;
   margin-top: 10%;
   margin-left: 5%;
 }
-.project-list-icons-delete:hover{
+.project-list-icons-delete:hover {
   color: #ef233c;
 }
-.Private-Project-Customer{
+.Private-Project-Customer {
   margin-top: 3%;
   margin-left: 10%;
 }
-.Private-Project-Customer h1{
+.Private-Project-Customer h1 {
   font-size: 1.8vw;
   font-family: "Lato", sans-serif;
   color: #1a936f;
 }
-.Private-Project-Customer button{
+.Private-Project-Customer button {
   font-size: 1.2vw;
   font-family: "Lato", sans-serif;
   margin: 1%;
@@ -1371,54 +1378,282 @@ tr:nth-child(even) {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
   cursor: pointer;
 }
-.Private-Project-Customer button:hover{
+.Private-Project-Customer button:hover {
   background-color: white;
   border: #008a60 3px solid;
-  font-weight: 500;  
+  font-weight: 500;
   box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2), 0 9px 30px 0 rgba(0, 0, 0, 0.19);
   color: #00976a;
 }
-.Private-Project-Customer input{
-height: 4.4vh; 
-margin-bottom: 5vh;
-color: #18204b; 
-width: 40vw;
-font-size: 1.2vw;
-font-family: "Lato", sans-serif;
-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-border:  #18204b 2px solid  ;
+.Private-Project-Customer input {
+  height: 4.4vh;
+  margin-bottom: 5vh;
+  color: #18204b;
+  width: 40vw;
+  font-size: 1.2vw;
+  font-family: "Lato", sans-serif;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  border: #18204b 2px solid;
 }
-.Private-Project-Customer h2{
+.Private-Project-Customer h2 {
   font-size: 1.5vw;
   font-family: "Lato", sans-serif;
   color: #5a5a5a;
 }
-.Private-Project-Customer h3{
+.Private-Project-Customer h3 {
   color: #f3374d;
   font-size: 1.5vw;
   font-family: "Lato", sans-serif;
 }
-.Public-Project-Customer{
+.Public-Project-Customer {
   margin-top: 3%;
   margin-left: 10%;
 }
-.Public-Project-Customer h1{
+.Public-Project-Customer h1 {
   font-size: 1.5vw;
   font-family: "Lato", sans-serif;
   color: #1a936f;
 }
-.Public-Project-Customer h2{
+.Public-Project-Customer h2 {
   font-size: 1.3vw;
   font-family: "Lato", sans-serif;
   color: #5a5a5a;
 }
-.profiles-container-dashboard{
+.profiles-container-dashboard {
   display: flex;
   /* margin-left: 10%; */
   flex-wrap: wrap;
 }
+.loggedin-links {
+  list-style: none;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  width: 15vw;
+  position: relative;
+}
+.customer-image-header {
+  /* margin-bottom: 1.2%; */
+  margin-left: 20%;
+  width: 3vw;
+  height: 3vw;
+  border-radius: 50%;
+  background-color: #1a936f;
+  cursor: pointer;
+}
+.customer-image-header h1 {
+  font-family: "Lato", sans-serif;
+  color: white;
+  margin: auto;
+  font-size: 2.4vw;
+  text-align: center;
+}
+.menu {
+  position: relative;
+  width: 10vh;
+  height: 10vh;
+}
+.dropdown-menu {
+  position: absolute;
+  display: none;
+  z-index: 1;
+  list-style: none;
+  background-color: white;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  width: 15vw;
+  margin-top: 1.9vh;
+  border-radius: 1.5vh;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+}
+.dropdown-menu .logout-link {
+  color: #ef233c;
+}
+.dropdown-menu li {
+  color: #535353;
+  font-family: "Lato", sans-serif;
+  font-size: 1.5vw;
+  padding-bottom: 2vh;
+  margin: auto;
+  cursor: pointer;
+}
+.dropdown-menu li:hover {
+  color: #008a60;
+}
+.dropdown-menu .logout-link:hover {
+  color: #ef233c;
+}
+.menu:hover .dropdown-menu {
+  display: block;
+}
+.messagerie {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 90vh;
+  grid-template-areas: "sidebar .";
+  overflow-y: hidden;
+}
 
-
+.sideBar {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  background-color: #eeeeee;
+  /* overflow-y: scroll; */
+}
+.sidebar__header {
+  grid-area: sidebar;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7% 10%;
+  color: #18204b;
+}
+.sidebar__search {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  width: 95%;
+  height: 4vh;
+  border-radius: 20px;
+  margin: 0 auto;
+}
+.sidebar__rooms{
+  background-color: white;
+  margin-top: 1vh;
+  height: 85%;
+  overflow-y: scroll;
+}
+.sidebar__search input {
+  width: 100%;
+  outline: none;
+  border: none;
+  font-size: 0.7vw;
+}
+.sidebar__conversations {
+  font-family: "Lato", sans-serif;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  padding: 2vh;
+  margin: 1vh 0%;
+  cursor: pointer;
+  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid #f6f6f6;
+}
+.sidebar__conversations:hover {
+  background-color: white;
+  box-shadow: 0 16px 12px -12px rgba(0, 0, 0, 0.2);
+  
+}
+.sidebar__conversations_info {
+  margin-left: 7%;
+}
+.sidebar__conversations_info h2 {
+  margin-top: 0%;
+  font-size: 1.1vw;
+  margin-bottom: 8px;
+}
+.sidebar__last_message{
+  font-size: 0.9vw;
+}
+.viewed-message{
+  color: #6d6d6d;
+  font-size: 1vw;
+}
+.main__conversation{
+  margin: 0%;
+}
+.messageMain-Header{
+  font-family: "Lato", sans-serif;
+  background-color: #eeeeee;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.2);
+  padding: 1vh 2vw ;
+}
+.main__conversations_info{
+  flex: 1;
+  padding-left: 1.2vw;
+}
+.main__conversations_info h2 {
+  margin-top: 0%;
+  font-size: 1.1;
+  margin-bottom: 8px;
+}
+.no__Data{
+  font-family: "Lato", sans-serif;
+ margin-left: 35%;
+ margin-top: 10vh;
+ font-size: 3vh;
+}
+.search_container {
+  position: relative;
+}
+.sidebar__search_collapse {
+  position: absolute;
+  z-index: 1;
+  background-color: white;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  width: 90%;
+  margin-left: 5%;
+  max-height: 50vh;
+  height: 50vh;
+  margin-top: 1vh;
+  border-radius: 0.5vh;
+  overflow-y: scroll;
+}
+.chat__body{
+  height: 73vh;
+  overflow-y: scroll;
+}
+.chat__message{
+  position: relative;
+  max-width: 50%;
+  font-family: "Lato", sans-serif;
+  font-size: 1vw;
+  padding: 0.5vw 0.7vw;
+  width: fit-content;
+  border-radius: 1vw;
+  background-color: #ebebeb;
+  margin: 5%;
+}
+.chat__name{
+  position: absolute;
+  top: -1.4vh;
+  font-family: "Lato", sans-serif;
+  font-weight: 800;
+  font-size: xx-small;
+}
+.chat__timestamp{
+  font-family: "Lato", sans-serif;
+  margin-left: 1vw;
+  margin-left: auto;
+  font-size: xx-small;
+}
+.chat__reciever{
+  margin-left: auto;
+  background-color: #49cea6;
+}
+.main__textInput{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height:4vw;
+  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.19);
+}
+.main__textInput > form {
+  flex: 1;
+  display: flex;
+}
+.main__textInput > form > input {
+  flex: 1;
+  border-radius: 3.5vw;
+  padding:1vw;
+  font-family: "Lato", sans-serif;
+  font-size: 1vw;
+  border: none;
+  background-color: #ebebeb;
+  outline: none;
+}
 
 /* end dashboard */
 
